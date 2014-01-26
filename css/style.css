@@ -24,3 +24,15 @@ html,body, body>.row{
 	text-align: right;
 	margin-top: 20px;
 }
+
+.margenarriba{
+	margin-top: 20px;
+}
+
+.margenabajo{
+	margin-bottom: 20px;
+}
+
+.margender{
+	margin-right: 15px;
+}

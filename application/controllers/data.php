@@ -17,6 +17,7 @@ class Data extends CI_Controller {
 		//regresar delegacion
 		$usuariosResult["delegacion"] = $this->usuarios_model->delegacion($sexo);
 		//regresar promedio de uso
+		$usuariosResult["promedio"] = $this->usuarios_model->promedio($sexo);
 
 		echo json_encode($usuariosResult);
 	}
@@ -31,6 +32,7 @@ class Data extends CI_Controller {
 		
 		echo json_encode($viajeResult);
 	}
+
 }
 
 /* End of file welcome.php */

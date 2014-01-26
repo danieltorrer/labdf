@@ -56,19 +56,7 @@
 		height: 100%;
 		overflow-y: scroll; 
 	}
-
-	.margenarriba{
-		margin-top: 20px;
-	}
-
-	.margenabajo{
-		margin-bottom: 20px;
-	}
-
-	.margender{
-		margin-right: 15px;
-	}
-
+	
 	.resultados{
 		z-index: 1000;
 		position: absolute;
@@ -91,6 +79,7 @@
 
 	<div class="row">
 		<div class="large-3 columns collapse panel">
+			
 			<div class="">
 				<img src=" <?php echo base_url();?>img/logo_reportes.png " alt="">
 			</div>
@@ -99,6 +88,7 @@
 				<img src="<?php echo base_url();?>img/accidentes.png" alt="" width="150">
 				<input type="checkbox" name="accidentes" id="accidentes">
 			</div>
+
 			<div class="check">
 				<img src="<?php echo base_url();?>img/baches.png" alt="" width="150">
 				<input type="checkbox" name="baches" id="baches">

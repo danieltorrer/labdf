@@ -37,6 +37,22 @@ class usuarios_model extends CI_Model {
         }
     }
 
+    function promedio($sexo){
+        if ($sexo == "ambos") {
+            $this->db->select_avg('usos');
+            //$this->db->where("sexo", $sexo)
+            $query = $this->db->get('usuario');
+            return $query->result_array();
+        }
+
+        else{
+            $this->db->select_avg('usos');
+            $this->db->where("sexo", $sexo);
+            $query = $this->db->get('usuario');
+            return $query->result_array();
+        }
+    }
+
     /*
     function get_blog(){
         $this->db->order_by("Fecha","desc");

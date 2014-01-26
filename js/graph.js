@@ -18,8 +18,11 @@ $(document).ready(function(){
 })
 
 function buildgraph(response){
-	//console.log(response)
+	console.log(response)
 	$(".total h4").html(response["total"])
+	$(".usos h3 span").html(response["promedio"][0]["usos"]);
+
+
 	var delegacion = new Array();
 	var numbers = new Array();
 	var cont = 0;

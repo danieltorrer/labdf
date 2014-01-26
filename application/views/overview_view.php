@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="<?php echo base_url(); ?>js/jplot/jquery.jqplot.min.css" />
 	
 	<style>
+
 	html,body{
 		width: 100%;
 		height: 100%;
@@ -24,7 +25,14 @@
 		padding: 0px;
 		overflow-y: auto;
 		overflow-x: hidden;
+		background: #ccffcc;
 	}
+
+	.asd{
+		margin-top: 20px;
+		padding-left: 30px;
+	}
+
 	</style>
 
 	<script src="<?php echo base_url(); ?>js/vendor/modernizr.js"></script>
@@ -34,46 +42,58 @@
 	<div class="row">
 		<div class="large-3 columns collapse">
 
-			<img src="<?= base_url()?>img/titulo_usuarios.png" alt="">
-			<form>
-				<label>Sexo</label>
-				<input type="radio" name="sexo" value="M" id="hombre"><label for="hombre">Hombre</label>
-				<input type="radio" name="sexo" value="F" id="mujer"><label for="mujer">Mujer</label>
-				<input type="radio" name="sexo" value="ambos" id="ambos" checked><label for="ambos">Ambos</label>
-			</form>
+			<div class="">
+				<img src="<?= base_url()?>img/titulo_usuarios.png" alt="">
+			</div>
+
+			<div class="asd">
+				<div class="check">
+					<img class="marginarriba" src="<?php echo base_url();?>img/hombre_usuarios.png" alt="">
+					<input type="radio" name="sexo" value="M" id="hombre"><label for="hombre">
+				</div>
+
+				<div class="check">
+					<img src="<?php echo base_url();?>img/mujer_usuario.png" alt="">
+					<input type="radio" name="sexo" value="F" id="mujer">
+				</div>
+
+				<div class="check">
+					<img src="<?php echo base_url();?>img/ambos_usuarios.png" alt="">
+					<input type="radio" name="sexo" value="ambos" id="ambos" checked>
+				</div>
+			</div>
 		</div>
 
 		<div class="large-9 columns">
-			<div class="total">
-				<h3>Total:</h3>
-				<h4></h4>
-			</div>
-		</div>
-
-		<div class="large-6 columns">
-			<div class="usos">
-				<h3>Promedio de uso:</h3>
-				<h4></h4>
-			</div>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="large-12 columns">
-			<div class="delegacion">
-				<h3>Delegación:</h3>
-				<br>
-				<span id="info2"></span>
-				<div id="graphDelegacion">
-
+			<div class="row">
+				
+				<div class="large-12 columns">
+					<div class="total">
+						<h3>Usuarios:</h3>
+						<h4></h4>
+					</div>
 				</div>
-					<!--<input type="submit" id="graphDelegacionSave" value="Guardar Imagen">
-					<div class="graphDelegacionImage">
-						
-					</div>-->
+
+				<hr>
+
+				<div class="large-12 columns">
+					<h3>Delegación:</h3>
+					<span id="info2"></span>
+					<div id="graphDelegacion"></div>
 				</div>
+
+				<div class="large-12 columns">
+					<div class="usos">
+						<h3>El usuario promedio ha utilizado <span> </span> veces la bicicleta</h3>
+					</div>
+				</div>
+
 			</div>
+
+			<hr>
+
 		</div>
+
 	</div>
 
 	<!--<div>
