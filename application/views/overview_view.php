@@ -6,7 +6,7 @@
 	<title>LabDF-GDF | Bienvenidos</title>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>css/foundation.css" />
 	<link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css" />
-	<link rel="stylesheet" href="<?php echo base_url(); ?>js/jplot/jquery.jqplot.min.css" />
+	<script src="<?php echo base_url(); ?>js/ractive.js" ></script>
 	
 	<style>
 
@@ -61,6 +61,33 @@
 					<img src="<?php echo base_url();?>img/ambos_usuarios.png" alt="">
 					<input type="radio" name="sexo" value="ambos" id="ambos" checked>
 				</div>
+
+				
+
+				<script id='myTemplate' type='text/ractive'>
+				<form action="#" >
+				<select name="hola" id="hola">
+				{{#estaciones}}
+				<option value="{{id}}">{{principal}}</option>
+				{{/estaciones}}
+				</select>
+				<div id="botonsito" class="button tiny">Obtener tweets</div>
+				</form>
+				</script>
+				<script id="plantillaDatos" type="text/ractive">
+				{{#itemElegido}}
+				{{id}}
+				<span id="latitud">{{latitud}}</span>
+				<span id="longitud">{{longitud}}</span>
+				{{/itemElegido}}
+				</script>
+				<script id="listaTPL" type="text/ractive">
+				{{#estatus}}
+				<p><strong>{{#user}}{{name}} - @{{screen_name}} {{/user}} dijo: </strong>{{text}}</p>
+				{{/estatus}}
+				</script>
+
+
 			</div>
 		</div>
 
@@ -86,6 +113,12 @@
 					<div class="usos">
 						<h3>El usuario promedio ha utilizado <span> </span> veces la bicicleta</h3>
 					</div>
+				</div>
+
+				<div class="large-12 columns">
+					<div id='container'></div>
+					<div id="datos"></div>
+					<div id="listaTwits"></div>
 				</div>
 
 			</div>
@@ -116,6 +149,54 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>js/jplot/plugins/jqplot.toImage.js"></script>
 
 <script src="<?php echo base_url(); ?>js/graph.js"></script>
+
+<script>
+$(document).ready(inicio);
+function inicio(){
+	var x = $.getJSON("../js/lugares.json");
+	x.done(function(datos)
+	{
+		var ractive = new Ractive({
+			el: 'container',
+			template: '#myTemplate',
+			data: {
+				estaciones : datos
+			}
+		});
+		$("#botonsito").on("click", function()
+		{
+			var itemSeleccionado = $("#hola").val();
+			var ractive = new Ractive({
+				el: "datos",
+				template:"#plantillaDatos",
+				data:{
+					itemElegido : datos[itemSeleccionado-1]
+				}
+			});
+			$("#plantillaDatos").trigger("change");
+		});
+		$("#plantillaDatos").on("change",function(){
+			var pet_busqueda = "Ecobici";
+			var pet_latitud = $("#latitud").text();
+			var pet_longitud = $("#longitud").text();
+			$.getJSON("peticionTwitter.php",{busqueda:pet_busqueda,latitud:pet_latitud,longitud:pet_longitud}).done(
+				function(datos){
+					//alert("lel")
+					var ractive = new Ractive({
+						el: "listaTwits",
+						template: "#listaTPL",
+						data:{
+							estatus : datos["statuses"]
+						}
+					});
+					console.log(datos["statuses"]);
+				});
+		});
+	});
+
+
+}
+</script>
 
 </body>
 </html>
