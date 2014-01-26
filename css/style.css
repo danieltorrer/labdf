@@ -1,0 +1,26 @@
+html,body, body>.row{
+	width: 100%;
+}
+
+.vertical-align{
+	display: table;
+	height: 100%;
+	width: 100%;
+	text-align: center;
+}
+
+.vertical-align>.son{
+	height: 100%;
+	width: 100%;
+	display: table-cell;
+	vertical-align: middle;
+} 
+
+.vertical-align>.son>img{
+	text-align: center;
+}
+
+.controls{
+	text-align: right;
+	margin-top: 20px;
+}

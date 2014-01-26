@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'open_sansitalic';
+    src: url('HomizioNovaWFLight.eot');
+    src: url('HomizioNovaWFLight.eot?#iefix') format('embedded-opentype'),
+         url('HomizioNovaWFLight.woff') format('woff'),
+         url('HomizioNovaWFLight.ttf') format('truetype'),
+         url('HomizioNovaWFLight.svg#open_sansitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
