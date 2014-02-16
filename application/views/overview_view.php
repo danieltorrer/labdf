@@ -179,7 +179,7 @@ function inicio(){
 			var pet_busqueda = "Ecobici";
 			var pet_latitud = $("#latitud").text();
 			var pet_longitud = $("#longitud").text();
-			$.getJSON("peticionTwitter.php",{busqueda:pet_busqueda,latitud:pet_latitud,longitud:pet_longitud}).done(
+			$.getJSON("peticionTwitter",{busqueda:pet_busqueda,latitud:pet_latitud,longitud:pet_longitud}).done(
 				function(datos){
 					//alert("lel")
 					var ractive = new Ractive({
